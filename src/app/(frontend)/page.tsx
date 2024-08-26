@@ -1,5 +1,10 @@
-export default function Home(){
+import Intro from "@/components/intro";
+import payload from "payload";
+import conf from "../../payload.config";
+
+export default async function Home(){
+
   return (
-    <h1 className="h-36 text-red-700"></h1>
+    <Intro/>
   )
 }
