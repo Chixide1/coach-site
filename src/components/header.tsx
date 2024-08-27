@@ -1,13 +1,13 @@
-import payload from "payload";
 import Image from "next/image";
+import config from '../payload.config'
+import { getPayloadHMR } from "@payloadcms/next/utilities";
 
 export default async function Header(){
-
+  const payload = await getPayloadHMR({config})
   const pages = await payload.find({
     collection: 'pages',
     depth: 0
   })
-
   const logo = await payload.findByID({
     collection: 'media',
     id: 1
@@ -23,7 +23,7 @@ export default async function Header(){
       <nav className="flex gap-8">
         {pages.docs.map((d) => (
           <a href={d.page === 'Home' ? '/' : `/${d.page.toLowerCase()}`}
-          className="text-secondary" key={`navlink-${d.id}`}>
+          className="text-secondary font-medium" key={`navlink-${d.id}`}>
             {d.page}
           </a>
         ))}
