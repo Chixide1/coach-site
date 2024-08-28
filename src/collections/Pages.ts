@@ -1,4 +1,5 @@
 import type { CollectionConfig } from 'payload'
+import { linkGroup } from './fields/linkGroup'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -8,32 +9,31 @@ export const Pages: CollectionConfig = {
   versions: true,
   fields: [
     {
-        name: 'page',
-        label: 'Page',
-        type: 'text',
-        required: true,
-        defaultValue: ''
+      name: 'page',
+      label: 'Page',
+      type: 'text',
+      required: true,
+      defaultValue: ''
     },
     {
-        name: 'sections',
-        label: 'Sections',
-        type: 'array',
-        fields: [
-            {
-                name: 'title',
-                label: 'Title',
-                type: 'text',
-                required: true,
-                defaultValue: ''
-            },
-            {
-                name: 'content',
-                label: 'Content',
-                type: 'textarea',
-                required: true,
-                defaultValue: ''
-            }
-        ],
-    }
+      name: 'sections',
+      label: 'Sections',
+      type: 'array',
+      fields: [
+        {
+          name: 'title',
+          label: 'Title',
+          type: 'text',
+          required: true,
+          defaultValue: ''
+        },
+        {
+          name: 'content',
+          label: 'Content',
+          type: 'richText',
+        }
+      ],
+    },
+    linkGroup(),
   ],
 }
