@@ -17,25 +17,25 @@ export default async function Intro(){
     depth: 5
   })
 
-  const intro = home.sections?.find(section => section.title === 'Intro')
-  console.log(intro?.content?.root.children)
+  const intro = home.sections?.find(section => section.title === 'intro')
+  // console.log(intro?.content?.root.children)
 
-  function test(){
+  function setContent(){
     if (intro?.content_html){
       return {__html: intro?.content_html}
     } 
   }
   
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-0 px-20 mt-8 w-full">
-      <div className="flex flex-col justify-center pb-4">
-        {/* <h1 className="text-6xl text-secondary font-medium pb-6">Financial Coach<br/>Funmi Onuoha</h1> */}
-        <div className='intro' dangerouslySetInnerHTML={test()}></div>
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-4 px-20 pt-12 pb-8 w-full">
+      <div className="flex flex-col justify-center">
+        <div className='[&>h2]:text-secondary [&>h2]:font-medium [&>h2]:text-5xl [&>p]:pt-2 [&>p]:text-accent [&>p]:text-pretty [&>h2]:text-balance'
+        dangerouslySetInnerHTML={setContent()}/>
         <Socials/>
       </div>
-      <div className='flex justify-end items-center'>
-        <Image src={portrait.url ? portrait.url : ''} alt={portrait.alt} width={1} height={1}
-        className='rounded-[50%] border border-secondary shadow-lg w-7/12'/>
+      <div className='flex justify-center items-center row-start-1 md:row-start-auto'>
+        <Image src={portrait.url ? portrait.url : ''} alt={portrait.alt} width={330} height={330}
+        className='rounded-[50%] border border-secondary shadow-lg '/>
       </div>
     </section>
   )

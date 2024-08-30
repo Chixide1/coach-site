@@ -1,8 +1,8 @@
 import Header from "@/components/header";
 import "../globals.css";
-import { Inter } from 'next/font/google'
+import { Cabin, Inter } from 'next/font/google'
 
-const font = Inter({
+const font = Cabin({
   subsets: ['latin']
 })
 
