@@ -1,6 +1,6 @@
 // storage-adapter-import-placeholder
 import { sqliteAdapter } from '@payloadcms/db-sqlite'
-import { defaultEditorFeatures, lexicalEditor, LinkFeature } from '@payloadcms/richtext-lexical'
+import { HTMLConverterFeature, lexicalEditor, LinkFeature } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -39,6 +39,7 @@ export default buildConfig({
           },
         ],
       }),
+      HTMLConverterFeature({})
     ]
   }),
   secret: process.env.PAYLOAD_SECRET || '',

@@ -11,16 +11,26 @@ export default async function Intro(){
     collection: 'media', id: 2
   })
 
-  const intro = await payload.findByID({
+  const home = await payload.findByID({
     collection: 'pages',
-    id: 1
-  }).then(home => home.sections?.find(section => section.title === 'intro-content'))
+    id: 1,
+    depth: 5
+  })
 
+  const intro = home.sections?.find(section => section.title === 'Intro')
+  console.log(intro?.content?.root.children)
+
+  function test(){
+    if (intro?.content_html){
+      return {__html: intro?.content_html}
+    } 
+  }
+  
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-0 px-20 mt-8 w-full">
       <div className="flex flex-col justify-center pb-4">
-        <h1 className="text-6xl text-secondary font-medium pb-6">Financial Coach<br/>Funmi Onuoha</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae ducimus iste nemo asperiores nostrum est, doloribus cum omnis minima.</p>
+        {/* <h1 className="text-6xl text-secondary font-medium pb-6">Financial Coach<br/>Funmi Onuoha</h1> */}
+        <div className='intro' dangerouslySetInnerHTML={test()}></div>
         <Socials/>
       </div>
       <div className='flex justify-end items-center'>

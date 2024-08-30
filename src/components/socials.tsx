@@ -9,7 +9,7 @@ export async function Socials(){
     }))
     .then(pages => pages.links)
   
-  console.log(socials)
+  // console.log(socials)
 
   return(
     <></>

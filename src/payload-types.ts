@@ -105,6 +105,7 @@ export interface Page {
           };
           [k: string]: unknown;
         } | null;
+        content_html?: string | null;
         id?: string | null;
       }[]
     | null;

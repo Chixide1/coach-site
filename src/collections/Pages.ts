@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 import { linkGroup } from './fields/linkGroup'
+import { lexicalHTML} from '@payloadcms/richtext-lexical'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -31,7 +32,8 @@ export const Pages: CollectionConfig = {
           name: 'content',
           label: 'Content',
           type: 'richText',
-        }
+        },
+        lexicalHTML('content', { name: 'content_html' }),
       ],
     },
     linkGroup(),

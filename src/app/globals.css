@@ -7,3 +7,12 @@
     
   }
 }
+
+.intro {
+
+  h2 {
+    color: theme('colors.secondary');
+    font-size: 3rem;
+  }
+
+}
