@@ -26,17 +26,17 @@ export default async function Header(){
         <Image src={logo.url ? logo.url : ''} alt={logo.alt} width={75} height={75}/>
       </Link>
       <nav className="flex gap-12">
-          <Link href={`/${pages.docs[0].page}`} 
+          <Link href={`/${pages.docs[0].page.toLowerCase()}`} 
           className="text-secondary font-medium transtion duration-700 hover:scale-110 hover:text-accent">
             <span className="fa-regular fa-user pe-2"></span>
             {pages.docs[0].page}
           </Link>
-          <Link href={`/${pages.docs[1].page}`} 
+          <Link href={`/${pages.docs[1].page.toLowerCase()}`} 
           className="text-secondary font-medium transtion duration-700 hover:scale-110 hover:text-accent">
             <span className="fa-regular fa-comments pe-2"></span>
             {pages.docs[1].page}
           </Link>
-          <Link href={`/${pages.docs[2].page}`} 
+          <Link href={`/${pages.docs[2].page.toLowerCase()}`} 
           className="text-secondary font-medium transtion duration-700 hover:scale-110 hover:text-accent">
             <span className="fa-regular fa-address-card pe-2"></span>
             {pages.docs[2].page}

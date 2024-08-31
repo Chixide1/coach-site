@@ -18,7 +18,6 @@ export default async function Intro(){
   })
 
   const intro = home.sections?.find(section => section.title === 'intro')
-  // console.log(intro?.content?.root.children)
 
   function setContent(){
     if (intro?.content_html){
@@ -27,9 +26,9 @@ export default async function Intro(){
   }
   
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-4 px-20 pt-12 pb-8 w-full">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-4 px-20 pt-12 pb-28 w-full">
       <div className="flex flex-col justify-center">
-        <div className='[&>h2]:text-secondary [&>h2]:font-medium [&>h2]:text-5xl [&>p]:pt-2 [&>p]:text-accent [&>p]:text-pretty [&>h2]:text-balance'
+        <hgroup className='[&>h2]:text-secondary [&>h2]:font-medium [&>h2]:text-5xl [&>p]:pt-2 [&>p]:text-accent [&>p]:text-pretty [&>h2]:text-balance'
         dangerouslySetInnerHTML={setContent()}/>
         <Socials/>
       </div>
