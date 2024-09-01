@@ -30,11 +30,11 @@ export default async function Intro(){
   // console.log(heading)
   
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-4 px-20 pt-12 pb-28 w-full">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-4 px-20 pt-12 pb-48 w-full">
       <div className="flex flex-col justify-center">
         <div className='flex gap-5 items-center mb-4'>
           <Socials/>
-          <h2 className={`text-secondary ${pdFont.className} font-medium text-6xl text-balance heigh`}>{removeHtmlTags(heading?.content_html || '')}</h2>
+          <h2 className={`text-secondary ${pdFont.className} font-medium text-6xl text-balance heigh leading-tight`}>{removeHtmlTags(heading?.content_html || '')}</h2>
         </div>
         <div className='pl-12'>
           <p className='text-pretty mb-8'>{removeHtmlTags(content?.content_html || '')}</p>

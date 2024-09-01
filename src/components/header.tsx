@@ -26,19 +26,19 @@ export default async function Header(){
       <Link href={'/'} className="transtion duration-1000 hover:scale-125">
         <Image src={logo.url ? logo.url : ''} alt={logo.alt} width={75} height={75}/>
       </Link>
-      <nav className="flex gap-12">
+      <nav className="flex gap-12 text-sm">
           <Link href={`/${pages.docs[0].page.toLowerCase()}`} 
-          className=" font-medium transtion duration-700 hover:text-secondary flex items-center gap-2">
+          className="transtion duration-700 hover:text-secondary flex items-center gap-2">
             <User className="w-[1em] h-[1em]"/>
             <span className="font-medium">{pages.docs[0].page}</span>
           </Link>
           <Link href={`/${pages.docs[1].page.toLowerCase()}`} 
-          className=" font-medium transtion duration-700 hover:text-secondary flex items-center gap-2">
+          className="transtion duration-700 hover:text-secondary flex items-center gap-2">
             <MessageSquare className="w-[1em] h-[1em]"/>
             {pages.docs[1].page}
           </Link>
           <Link href={`/${pages.docs[2].page.toLowerCase()}`} 
-          className=" font-medium transtion duration-700 hover:text-secondary flex items-center gap-2">
+          className="transtion duration-700 hover:text-secondary flex items-center gap-2">
             <Contact className="w-[1em] h-[1em]"/>
             {pages.docs[2].page}
           </Link>
