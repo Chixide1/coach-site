@@ -1,6 +1,7 @@
 import { getPayloadHMR } from "@payloadcms/next/utilities";
 import config from '../payload.config'
 import Link from "next/link";
+import { Facebook, Instagram, Linkedin, Mail } from "lucide-react";
 
 export async function Socials(){
   const socials = await getPayloadHMR({config})
@@ -10,11 +11,27 @@ export async function Socials(){
     }))
     .then(pages => pages.links)
 
+  function getLogo(logo: string){
+
+    switch(logo){
+      case 'linkedin':
+        return <Linkedin className="w-[1em] h-[1em]"/>
+      case 'instagram':
+        return <Instagram className="w-[1em] h-[1em]"/>
+      case 'facebook':
+        return <Facebook className="w-[1em] h-[1em]"/>
+      case 'email':
+        return <Mail className="w-[1em] h-[1em]"/>
+    }
+  }
+
   return(
-    <div className="flex gap-4  mt-4">
+    <div className="flex flex-col gap-3 w-fit justify-center">
       {socials?.map(social => (
-        <Link href={social.link.url ? social.link.url:''} target={social.link.newTab ? '_blank':'_self'} key={social.id}
-        className={`fa-brands fa-${social.link.name} text-2xl transtion duration-700 hover:scale-110 text-accent-2`}/>
+        <Link href={social.link.url ? social.link.url:''} target={social.link.newTab ? '_blank':'_self'}
+        key={social.id} className={`text-lg transtion duration-700 hover:text-accent text-secondary p-1`}>
+          {getLogo(social.link.name)}
+        </Link>
       ))}
     </div>
   )

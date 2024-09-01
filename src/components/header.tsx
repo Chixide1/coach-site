@@ -4,6 +4,7 @@ import { getPayloadHMR } from "@payloadcms/next/utilities";
 import Link from "next/link";
 import { PaginatedDocs } from "payload";
 import { Page } from "@/payload-types";
+import { Contact, MessageSquare, User } from "lucide-react";
 
 export default async function Header(){
   const payload = await getPayloadHMR({config})
@@ -27,18 +28,18 @@ export default async function Header(){
       </Link>
       <nav className="flex gap-12">
           <Link href={`/${pages.docs[0].page.toLowerCase()}`} 
-          className="text-secondary font-medium transtion duration-700 hover:scale-110 hover:text-accent">
-            <span className="fa-regular fa-user pe-2"></span>
-            {pages.docs[0].page}
+          className=" font-medium transtion duration-700 hover:text-secondary flex items-center gap-2">
+            <User className="w-[1em] h-[1em]"/>
+            <span className="font-medium">{pages.docs[0].page}</span>
           </Link>
           <Link href={`/${pages.docs[1].page.toLowerCase()}`} 
-          className="text-secondary font-medium transtion duration-700 hover:scale-110 hover:text-accent">
-            <span className="fa-regular fa-comments pe-2"></span>
+          className=" font-medium transtion duration-700 hover:text-secondary flex items-center gap-2">
+            <MessageSquare className="w-[1em] h-[1em]"/>
             {pages.docs[1].page}
           </Link>
           <Link href={`/${pages.docs[2].page.toLowerCase()}`} 
-          className="text-secondary font-medium transtion duration-700 hover:scale-110 hover:text-accent">
-            <span className="fa-regular fa-address-card pe-2"></span>
+          className=" font-medium transtion duration-700 hover:text-secondary flex items-center gap-2">
+            <Contact className="w-[1em] h-[1em]"/>
             {pages.docs[2].page}
           </Link>
       </nav>

@@ -1,8 +1,8 @@
 import Header from "@/components/header";
 import "../globals.css";
-import { Cabin, Inter } from 'next/font/google'
+import { Open_Sans} from 'next/font/google'
 
-const font = Cabin({
+const font = Open_Sans({
   subsets: ['latin']
 })
 
@@ -10,10 +10,7 @@ export default async function RootLayout({ children, }: { children: React.ReactN
 
   return (
     <html lang="en" className={font.className}>
-      <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
-      </head>
-      <body className="bg-primary max-w-screen-2xl mx-auto">
+      <body className="bg-bg text-primary max-w-screen-2xl mx-auto">
           <Header/>
           {children}
       </body>
