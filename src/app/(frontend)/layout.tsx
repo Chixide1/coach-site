@@ -10,7 +10,7 @@ export default async function RootLayout({ children, }: { children: React.ReactN
 
   return (
     <html lang="en" className={font.className}>
-      <body className="bg-bg text-primary max-w-[1300px] mx-auto">
+      <body className="text-primary max-w-[1300px] mx-auto">
           <Header/>
           {children}
       </body>

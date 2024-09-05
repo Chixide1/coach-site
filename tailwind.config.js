@@ -7,7 +7,7 @@ export default {
     extend: {
       colors: {
         bg: '#FEFAFA',
-        primary: '#35373a',
+        primary: '#170606',
         secondary: '#002D5B',
         accent: '#EC5B53',
         'accent-2': '#007560'
