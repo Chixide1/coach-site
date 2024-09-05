@@ -7,3 +7,7 @@
 
   }
 }
+
+.intro-hero {
+  background-image: linear-gradient(to top, #EDEDED 60%, rgba(0,0,0,0) 0%); 
+}

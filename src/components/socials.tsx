@@ -26,10 +26,10 @@ export async function Socials(){
   }
 
   return(
-    <div className="flex flex-col gap-4 w-fit justify-center">
+    <div className="flex gap-4 w-fit justify-center mx-auto mt-auto">
       {socials?.map(social => (
         <Link href={social.link.url ? social.link.url:''} target={social.link.newTab ? '_blank':'_self'}
-        key={social.id} className={`text-lg transtion duration-700 hover:text-accent text-secondary p-1`}>
+        key={social.id} className={`text-4xl transtion duration-700 hover:text-secondary text-primary p-1`}>
           {getLogo(social.link.name)}
         </Link>
       ))}
