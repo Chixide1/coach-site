@@ -7,3 +7,27 @@
 
   }
 }
+
+body {
+  background-image: url('../../public/download.jpeg');
+}
+
+/* .about {
+  display: grid;
+  grid-template-columns: repeat(minmax(0, 1fr));
+  grid-template-areas:
+  "a a"
+  "b c";
+
+  .about__intro {
+    grid-area: a;
+  }
+
+  .about__content {
+    grid-area: b;
+  }
+
+  .about__pic {
+    grid-area: c;
+  }
+} */

@@ -30,7 +30,7 @@ export default async function Intro(){
   // console.log(heading)
   
   return (
-    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-4 px-20 pt-12 pb-48 w-full">
+    <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-4 px-20 pt-12 pb-24 w-full">
       <div className="flex flex-col justify-center">
         <div className='flex gap-5 items-center mb-4'>
           <Socials/>
