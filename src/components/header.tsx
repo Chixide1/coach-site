@@ -32,7 +32,7 @@ export default async function Header(){
           </Link>
         </div>
         {pages.map(page => ( page.page != 'Home' && 
-          <Link href={`/${page.page.toLowerCase()}`} className="font-[650] text-xs last:ml-auto">
+          <Link href={`/${page.page.toLowerCase()}`} className="font-[650] text-xs last:ml-auto" key={page.id}>
             {page.page.toUpperCase()}
           </Link>
         ))}
