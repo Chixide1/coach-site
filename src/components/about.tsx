@@ -8,9 +8,9 @@ const pdFont = Playfair_Display({
 
 export async function About() {
   return (
-    <section className="grid auto-cols-fr md:grid-cols-2 pt-16 gap-8 px-6 md:px-20 pb-20 lg:grid-cols-3 lg:auto-rows-fr lg:gap-y-4">
+    <section className="grid auto-cols-fr md:grid-cols-2 pt-8 gap-8 px-6 md:px-20 pb-20 lg:grid-cols-3 lg:auto-rows-[0fr_1fr] lg:gap-y-4">
       <hgroup className="md:col-span-2 lg:col-span-1 lg:grid lg:row-span-2 lg:grid-rows-subgrid">
-        <div className="">
+        <div className="lg:h-fit">
           <h2 className={`${pdFont.className} text-secondary font-semibold text-2xl mb-6 text-balance`}>Coaching With a Passion While Exploring The World.</h2>
           <hr className='bg-accent w-16 h-0.5 mr-auto mt-3 mb-6 lg:mb-3'/>
         </div>
