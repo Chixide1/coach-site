@@ -5,7 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
-export function removeHtmlTags(str: string) {
+export function removeHtmlTags(str: string | null | undefined) {
   const regex = /<[^>]*>/g;
-  return str.replace(regex, '');
+  return str ? str.replace(regex, '') : '';
 }

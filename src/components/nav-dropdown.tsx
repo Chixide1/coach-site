@@ -25,8 +25,8 @@ export default function NavDropdown({pages}: NavDropdownProps) {
         </MenubarTrigger>
         <MenubarContent collisionPadding={{ right: 20 }}>
           {pages?.map(page => (page.page != 'Home' &&
-            <MenubarItem>
-              <Link href={'/'}>{page.page}</Link>
+            <MenubarItem key={page.page + '-mobile_menu'}>
+              <Link href={page.page}>{page.page}</Link>
             </MenubarItem>
           ))}
         </MenubarContent>

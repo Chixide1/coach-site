@@ -30,7 +30,7 @@ export default async function Header() {
       </Link>
       <nav className="md:flex gap-12 text-sm hidden">
         {pages.map(page => (page.page != 'Home' &&
-          <Link href={`/${page.page.toLowerCase()}`} className="transtion duration-700 hover:text-secondary flex items-center gap-2" key={page.id}>
+          <Link href={page.page} className="transtion duration-700 hover:text-secondary flex items-center gap-2" key={page.id}>
             {page.page}
           </Link>
         ))}
