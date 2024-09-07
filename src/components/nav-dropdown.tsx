@@ -18,7 +18,7 @@ type NavDropdownProps = {
 export default function NavDropdown({pages}: NavDropdownProps) {
 
   return (
-    <Menubar className="border-0 h-fit md:hidden">
+    <Menubar className="border-0 h-fit md:hidden bg-transparent">
       <MenubarMenu>
         <MenubarTrigger >
           <AlignRight className="text-secondary" />
