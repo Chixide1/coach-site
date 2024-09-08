@@ -3,7 +3,20 @@ import config from '../payload.config'
 import Link from "next/link";
 import { Facebook, Instagram, Linkedin, Mail } from "lucide-react";
 
-export async function Socials(){
+type SocialsProps = {
+  direction?: 'vertical' | 'horizontal'
+  color?: 'blue' | 'white'
+  className?: string
+}
+
+const variants = {
+  'blue': 'text-secondary',
+  'white': 'text-white',
+  'vertical': 'flex-col',
+  'horizontal': 'flex-row'
+}
+
+export async function Socials({direction = 'vertical', color = 'blue', className}:SocialsProps){
   const socials = await getPayloadHMR({config})
     .then(async payload => await payload.findByID({
       collection: 'pages',
@@ -12,7 +25,6 @@ export async function Socials(){
     .then(pages => pages.links)
 
   function getLogo(logo: string){
-
     switch(logo){
       case 'linkedin':
         return <Linkedin className="w-[1em] h-[1em]"/>
@@ -26,10 +38,10 @@ export async function Socials(){
   }
 
   return(
-    <div className="flex md:flex-col gap-4 w-fit justify-center">
+    <div className={`flex ${variants[direction]} gap-4 w-fit items-center ` + className}>
       {socials?.map(social => (
         <Link href={social.link.url ? social.link.url:''} target={social.link.newTab ? '_blank':'_self'}
-        key={social.id} className={`text-lg transtion duration-700 hover:text-accent text-secondary p-1`}>
+        key={social.id} className={`text-lg transtion duration-700 hover:text-accent ${variants[color]} p-1`}>
           {getLogo(social.link.name)}
         </Link>
       ))}

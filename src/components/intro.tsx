@@ -26,8 +26,6 @@ export default async function Intro(){
 
   const heading = home.sections?.find(section => section.title === 'intro-heading')
   const content = home.sections?.find(section => section.title === 'intro-content')
-
-  // console.log(heading)
   
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-4 px-6 md:px-20 pt-12 pb-24 w-full">
@@ -38,7 +36,7 @@ export default async function Intro(){
         </div>
         <div className='md:pl-12'>
           <p className='text-center md:text-left text-pretty mb-8'>{removeHtmlTags(content?.content_html || '')}</p>
-          <Link href='/contact me' className='mx-auto md:mx-0 bg-accent text-bg px-4 py-2 block w-fit rounded-lg transition duration-500 hover:scale-110'>Contact me</Link>
+          <Link href='/contact me' className='mx-auto md:mx-0 bg-accent text-white px-4 py-2 block w-fit rounded-lg transition duration-500 hover:scale-110'>Contact me</Link>
         </div>
       </div>
       <div className='flex justify-center items-center'>

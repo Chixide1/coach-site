@@ -24,8 +24,6 @@ export default async function Services() {
   services?.map(service => {
     service.content_html = service.content_html?.replace(new RegExp('<h2>', 'g'), `<h2 class=${pdFont.className}>`);
   });
-  
-  console.log(services?.[1].content?.root)
 
   return (
     <div className="bg-accent/5 py-12">
