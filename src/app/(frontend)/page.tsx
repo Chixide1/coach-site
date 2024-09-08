@@ -7,6 +7,7 @@ export default async function Homepage(){
   <main>
     <Intro/>
     <About/>
+    <Services/>
   </main>
   )
 }
