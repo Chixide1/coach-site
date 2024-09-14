@@ -20,7 +20,10 @@ export interface Config {
   db: {
     defaultIDType: number;
   };
-  globals: {};
+  globals: {
+    header: Header;
+    footer: Footer;
+  };
   locale: null;
   user: User & {
     collection: 'users';
@@ -86,45 +89,78 @@ export interface Media {
  */
 export interface Page {
   id: number;
-  page: string;
-  sections?:
-    | {
-        title: string;
-        content?: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
-        content_html?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  links?:
-    | {
-        link: {
-          name: string;
-          type?: ('reference' | 'custom') | null;
-          newTab?: boolean | null;
-          reference?: {
-            relationTo: 'pages';
-            value: number | Page;
-          } | null;
-          url?: string | null;
-          label: string;
-          appearance?: ('default' | 'outline') | null;
-        };
-        id?: string | null;
-      }[]
+  title: string;
+  content?:
+    | (
+        | {
+            title?: string | null;
+            content?: string | null;
+            picture?: (number | null) | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'homepage-intro';
+          }
+        | {
+            'brief-intro'?: string | null;
+            title?: string | null;
+            'col-1'?: string | null;
+            'col-2'?: string | null;
+            picture?: (number | null) | Media;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'homepage-about';
+          }
+        | {
+            services?:
+              | {
+                  picture?: (number | null) | Media;
+                  title?: string | null;
+                  content?: string | null;
+                  links?:
+                    | {
+                        link: {
+                          name: string;
+                          type?: ('reference' | 'custom') | null;
+                          newTab?: boolean | null;
+                          reference?: {
+                            relationTo: 'pages';
+                            value: number | Page;
+                          } | null;
+                          url?: string | null;
+                          label: string;
+                        };
+                        id?: string | null;
+                      }[]
+                    | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'homepage-services';
+          }
+        | {
+            links?:
+              | {
+                  link: {
+                    name: string;
+                    type?: ('reference' | 'custom') | null;
+                    newTab?: boolean | null;
+                    reference?: {
+                      relationTo: 'pages';
+                      value: number | Page;
+                    } | null;
+                    url?: string | null;
+                    label: string;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'socials';
+          }
+      )[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -162,6 +198,29 @@ export interface PayloadMigration {
   batch?: number | null;
   updatedAt: string;
   createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "header".
+ */
+export interface Header {
+  id: number;
+  logo?: (number | null) | Media;
+  nav?: (number | Page)[] | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: number;
+  heading?: string | null;
+  content?: string | null;
+  quicklinks?: (number | Page)[] | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

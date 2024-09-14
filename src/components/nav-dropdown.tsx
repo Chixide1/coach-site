@@ -12,7 +12,7 @@ import {
 import { Page } from "@/payload-types";
 
 type NavDropdownProps = {
-  pages?: Page[]
+  pages?: (number | Page)[]
 }
 
 export default function NavDropdown({pages}: NavDropdownProps) {
@@ -24,9 +24,9 @@ export default function NavDropdown({pages}: NavDropdownProps) {
           <AlignRight className="text-secondary" />
         </MenubarTrigger>
         <MenubarContent collisionPadding={{ right: 20 }}>
-          {pages?.map(page => (page.page != 'Home' &&
-            <MenubarItem key={page.page + '-mobile_menu'}>
-              <Link href={page.page}>{page.page}</Link>
+          {pages?.map(page => (typeof(page) !== 'number' &&
+            <MenubarItem key={page.id + '-mobile_menu'}>
+              <Link href={page.title}>{page.title}</Link>
             </MenubarItem>
           ))}
         </MenubarContent>
