@@ -11,7 +11,7 @@ const pdFont = Playfair_Display({
   subsets: ['latin']
 })
 
-type ServicesBlock = {
+export type ServicesBlock = {
   services?:
   | {
     picture?: Media;

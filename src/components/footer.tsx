@@ -1,8 +1,9 @@
 import { getPayloadHMR } from "@payloadcms/next/utilities"
 import config from '../payload.config'
-import { removeHtmlTags } from "@/lib/utils"
 import { Playfair_Display } from 'next/font/google'
 import { Socials } from "./socials"
+import { Page } from "@/payload-types"
+import {ServicesBlock} from './services'
 
 const pdFont = Playfair_Display({
   subsets: ['latin']
@@ -14,6 +15,15 @@ export default async function Footer() {
   const footer = await payload.findGlobal({
     slug: 'footer'
   })
+
+  const home = await payload.findByID({
+    collection: 'pages',
+    id: 1
+  })
+
+  const services = home.content?.find(section => section.blockName === 'Services') as ServicesBlock
+
+  const quickLinks = footer.quicklinks as Page[]
 
   return (
     <footer className="bg-secondary">
@@ -29,26 +39,19 @@ export default async function Footer() {
           <h2>Services</h2>
           <hr className='bg-accent w-8 h-px my-4 border-0' />
           <ul className="text-neutral-300 *:py-2">
-            <li>
-              <span>Growing</span>
-            </li>
-            <li>
-              <span>Protecting</span>
-            </li>
-            <li>
-              <span>Planning</span>
-            </li>
+            {services.services?.map(service => (
+              <li>{service.title}</li>
+            ))}
           </ul>
         </div>
         <div>
           <h2>Quick Links</h2>
           <hr className='bg-accent w-8 h-px my-4 border-0' />
-            <ul className="text-neutral-300 *:py-2">
-              <li><a href="#">Finance</a></li>
-              <li><a href="#">Testimonials</a></li>
-              <li><a href="#">Speaking</a></li>
-              <li><a href="#"></a>Contact Me</li>
-            </ul>
+          <ul className="text-neutral-300 *:py-2">
+            {quickLinks.map(page => (
+              <li><a href="#">{page.title}</a></li>
+            ))}
+          </ul>
         </div>
       </div>
       <div className="py-7 mx-14">
