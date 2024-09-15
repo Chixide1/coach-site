@@ -45,7 +45,7 @@ export async function About() {
             <hr className='bg-accent w-16 h-0.5 mr-auto mt-3 mb-6 lg:mb-3' />
           </div>
           <div>
-            <p>{about.col_1}</p>
+            <p className="whitespace-pre-line">{about.col_1}</p>
           </div>
         </hgroup>
         <div className="lg:col-start-2 lg:row-start-2">

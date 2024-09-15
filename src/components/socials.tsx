@@ -35,8 +35,8 @@ type SocialsProps = {
 const variants = {
   'blue': 'text-secondary',
   'white': 'text-white',
-  'vertical': 'flex-col',
-  'horizontal': 'flex-row'
+  'vertical': 'md:flex-col',
+  'horizontal': 'md:flex-row'
 }
 
 export async function Socials({ direction = 'vertical', color = 'blue', className }: SocialsProps) {
