@@ -103,8 +103,8 @@ export interface Page {
         | {
             'brief-intro'?: string | null;
             title?: string | null;
-            'col-1'?: string | null;
-            'col-2'?: string | null;
+            col_1?: string | null;
+            col_2?: string | null;
             picture?: (number | null) | Media;
             id?: string | null;
             blockName?: string | null;
@@ -219,6 +219,7 @@ export interface Footer {
   heading?: string | null;
   content?: string | null;
   quicklinks?: (number | Page)[] | null;
+  copyright?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }

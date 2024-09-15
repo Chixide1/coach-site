@@ -20,5 +20,10 @@ export const Footer: GlobalConfig = {
             relationTo: 'pages',
             hasMany: true,
         },
+        {
+            name: 'copyright',
+            label: 'Copyright',
+            type: 'textarea'
+        }
     ]
 }

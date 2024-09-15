@@ -14,12 +14,12 @@ export const HomePageAbout: Block = {
             type: 'text',
         },
         {
-            name: 'col-1',
+            name: 'col_1',
             label: 'Column 1',
             type: 'textarea'
         },
         {
-            name: 'col-2',
+            name: 'col_2',
             label: 'Column 2',
             type: 'textarea'
         },

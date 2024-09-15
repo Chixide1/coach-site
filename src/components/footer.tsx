@@ -11,20 +11,17 @@ const pdFont = Playfair_Display({
 export default async function Footer() {
   const payload = await getPayloadHMR({ config })
 
-  const sections = await payload.findByID({
-    collection: 'pages',
-    id: 1
-  }).then(page => page.sections)
-
-  const footerCopyright = sections?.find((section => section.title === 'footer-copyright'))
+  const footer = await payload.findGlobal({
+    slug: 'footer'
+  })
 
   return (
     <footer className="bg-secondary">
       <div className="flex gap-12 p-14 text-white text-xs *:flex-grow *:basis-0">
         <div className="!basis-2/12">
           <hgroup className="">
-            <h2 className={`${pdFont.className} text-3xl mb-4 font-medium`}>Feetee Coach</h2>
-            <p className="text-balance mb-4 text-neutral-300">Elevate yourself with my coaching services and take your aspirations to the next level. Grow yourself today.</p>
+            <h2 className={`${pdFont.className} text-3xl mb-4 font-medium`}>{footer.heading}</h2>
+            <p className="text-balance mb-4 text-neutral-300">{footer.content}</p>
           </hgroup>
           <Socials direction='horizontal' color='white' className="!gap-1" />
         </div>
@@ -56,7 +53,7 @@ export default async function Footer() {
       </div>
       <div className="py-7 mx-14">
         <hr className="bg-white mb-7" />
-        <span className="text-white text-xs text-center block w-fit">{removeHtmlTags(footerCopyright?.content_html)}</span>
+        <span className="text-white text-xs text-center block w-fit">{footer.copyright}</span>
       </div>
     </footer>
   )

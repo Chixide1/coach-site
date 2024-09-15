@@ -1,5 +1,10 @@
-import type { GlobalConfig } from 'payload'
+import type { GlobalConfig, Where } from 'payload'
 
+const filter: Where = {
+    title: {
+      not_equals: 'Home'
+    }
+}
 
 export const Header: GlobalConfig = {
     slug: 'header',
@@ -16,6 +21,7 @@ export const Header: GlobalConfig = {
             type: 'relationship',
             relationTo: 'pages',
             hasMany: true,
+            filterOptions: filter
         },
     ]
 }
