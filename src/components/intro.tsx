@@ -4,36 +4,19 @@ import config from '../payload.config'
 import { Socials } from './socials'
 import Link from 'next/link'
 import { Playfair_Display} from 'next/font/google'
-import { Media } from '@/payload-types'
+import { IntroBlock } from '@/lib/block-types'
 
 const pdFont = Playfair_Display({
   subsets: ['latin']
 })
 
-type IntroBlock = {
-  title?: string | null;
-  content?: string | null;
-  picture?: (number | null) | Media;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'homepage-intro';
-}
-
-export default async function Intro(){
+export default async function Intro({intro}: {intro: IntroBlock}){
   const payload = await getPayloadHMR({config})
 
   const portrait = await payload.findByID({
     collection: 'media',
     id: 1
   })
-
-  const home = await payload.findByID({
-    collection: 'pages',
-    id: 1,
-    depth: 1,
-  })
-
-  const intro = home.content?.find(section => section.blockName === 'Intro') as IntroBlock
   
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-4 px-6 md:px-20 pt-12 pb-24 w-full">

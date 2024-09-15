@@ -1,59 +1,15 @@
-import { getPayloadHMR } from "@payloadcms/next/utilities"
-import config from '../payload.config'
 import Heading from "./heading"
 import { Playfair_Display } from 'next/font/google'
 import Link from "next/link"
 import { CircleChevronRight } from "lucide-react"
-import { Media, Page } from "@/payload-types"
 import Image from "next/image"
+import { ServicesBlock } from "@/lib/block-types"
 
 const pdFont = Playfair_Display({
   subsets: ['latin']
 })
 
-export type ServicesBlock = {
-  services?:
-  | {
-    picture?: Media;
-    title?: string | null;
-    content?: string | null;
-    links?:
-    | {
-      link: {
-        name: string;
-        type?: ('reference' | 'custom') | null;
-        newTab?: boolean | null;
-        reference?: {
-          relationTo: 'pages';
-          value: number | Page;
-        } | null;
-        url?: string | null;
-        label: string;
-      };
-      id?: string | null;
-    }[]
-    | null;
-    id?: string | null;
-  }[]
-  | null;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'homepage-services';
-}
-
-export default async function Services() {
-  const payload = await getPayloadHMR({ config })
-
-  const home = await payload.findByID({
-    collection: 'pages',
-    id: 1
-  })
-
-  const services = home.content?.find(section => section.blockName === 'Services') as ServicesBlock
-
-  // services?.map(service => {
-  //   service.content_html = service.content_html?.replace(new RegExp('<h2>', 'g'), `<h2 class=${pdFont.className}>`);
-  // });
+export default async function Services({services}: {services: ServicesBlock}) {
 
   return (
     <div className="bg-accent/5 py-12">

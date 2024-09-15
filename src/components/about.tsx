@@ -1,39 +1,15 @@
 import Image from "next/image";
 import { Playfair_Display } from 'next/font/google'
-import { getPayloadHMR } from "@payloadcms/next/utilities";
-import config from '../payload.config'
-import { removeHtmlTags } from "@/lib/utils";
 import Heading from "./heading";
 import { Media } from "@/payload-types";
+import { AboutBlock } from "@/lib/block-types";
 
 const pdFont = Playfair_Display({
   subsets: ['latin']
 })
 
-type AboutBlock = {
-  'brief-intro'?: string | null;
-  title?: string | null;
-  col_1?: string | null;
-  col_2?: string | null;
-  picture?: (number | null) | Media;
-  id?: string | null;
-  blockName?: string | null;
-  blockType: 'homepage-about';
-}
-
-export async function About() {
-  const payload = await getPayloadHMR({ config })
-
-  const home = await payload.findByID({
-    collection: 'pages',
-    id: 1,
-    depth: 1
-  })
-
-  const about = home.content?.find(section => section.blockName === 'About') as AboutBlock
+export async function About({about}: {about: AboutBlock}) {
   const pic = about.picture as Media
-
-  // console.log(about)
 
   return (
     <>
