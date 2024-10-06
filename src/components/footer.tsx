@@ -3,7 +3,7 @@ import config from '../payload.config'
 import { Playfair_Display } from 'next/font/google'
 import { Socials } from "./socials"
 import { Page } from "@/payload-types"
-import {ServicesBlock} from './services'
+import { ServicesBlock } from "@/lib/block-types"
 import Link from "next/link"
 
 const pdFont = Playfair_Display({
@@ -41,7 +41,7 @@ export default async function Footer() {
           <hr className='bg-accent w-8 h-px my-4 border-0' />
           <ul className="text-neutral-300 *:py-2">
             {services.services?.map(service => (
-              <li><Link href={'#'}>{service.title}</Link></li>
+              <li key={`footer-${service.id}`}><Link href={'#'}>{service.title}</Link></li>
             ))}
           </ul>
         </div>
@@ -50,7 +50,7 @@ export default async function Footer() {
           <hr className='bg-accent w-8 h-px my-4 border-0' />
           <ul className="text-neutral-300 *:py-2">
             {quickLinks.map(page => (
-              <li><Link href="#">{page.title}</Link></li>
+              <li key={`quicklinks-${page.id}`}><Link href="#">{page.title}</Link></li>
             ))}
           </ul>
         </div>
